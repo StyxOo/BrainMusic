@@ -1,0 +1,206 @@
+[
+    {
+        "id": "b37918fc.de4b58",
+        "type": "tab",
+        "label": "Serial Communication Test",
+        "disabled": false,
+        "info": "# A quick test of the arduinos serial connection\nSends a message to an arduino via serial connection. Also displaies incoming messages."
+    },
+    {
+        "id": "d8ff0ad4.c20798",
+        "type": "serial in",
+        "z": "b37918fc.de4b58",
+        "name": "",
+        "serial": "de102f00.2fb6",
+        "x": 510,
+        "y": 440,
+        "wires": [
+            [
+                "fe059ce2.4cf57"
+            ]
+        ]
+    },
+    {
+        "id": "873f6d57.20691",
+        "type": "serial out",
+        "z": "b37918fc.de4b58",
+        "name": "",
+        "serial": "de102f00.2fb6",
+        "x": 830,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "3b79bf4b.05dcc",
+        "type": "ui_button",
+        "z": "b37918fc.de4b58",
+        "name": "",
+        "group": "1ed500bc.e592bf",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Send",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 470,
+        "y": 360,
+        "wires": [
+            [
+                "c4c214f6.348a28"
+            ]
+        ]
+    },
+    {
+        "id": "4f00fd1f.28bdd4",
+        "type": "ui_text_input",
+        "z": "b37918fc.de4b58",
+        "name": "",
+        "label": "Text to send via Serial",
+        "tooltip": "",
+        "group": "1ed500bc.e592bf",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 420,
+        "y": 300,
+        "wires": [
+            [
+                "2310b925.5981d6"
+            ]
+        ]
+    },
+    {
+        "id": "fe059ce2.4cf57",
+        "type": "ui_text",
+        "z": "b37918fc.de4b58",
+        "group": "1ed500bc.e592bf",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Recieved",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 800,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "85740c28.c3b15",
+        "type": "ui_text",
+        "z": "b37918fc.de4b58",
+        "group": "1ed500bc.e592bf",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Sent",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 830,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "2310b925.5981d6",
+        "type": "change",
+        "z": "b37918fc.de4b58",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "context",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c4c214f6.348a28",
+        "type": "change",
+        "z": "b37918fc.de4b58",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "context",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 360,
+        "wires": [
+            [
+                "873f6d57.20691",
+                "85740c28.c3b15"
+            ]
+        ]
+    },
+    {
+        "id": "de102f00.2fb6",
+        "type": "serial-port",
+        "serialport": "COM3",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "1ed500bc.e592bf",
+        "type": "ui_group",
+        "name": "Standard",
+        "tab": "7b24a0ad.4e504",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "7b24a0ad.4e504",
+        "type": "ui_tab",
+        "name": "Serial Connection Test",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
