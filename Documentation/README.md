@@ -2,14 +2,14 @@
 
 
 ### 19.04.2021
-Installing of required software:
+#### Installing of required software:
  - node-red
  - EMOTIV BCI
  - node-red-emotiv-toolbox
 
 
 ### 21.04.2021
-Trying to create a connection between node-red and arduino
+#### Trying to create a connection between node-red and arduino
  - Connunication will happen via USB serial connection
  - Add node-red-nodes-serialport addon for communication to serial ports
  - Add node-red-dashboard for quick UI testing
@@ -23,7 +23,7 @@ Trying to create a connection between node-red and arduino
 
 
 ### 26.04.2021
-Rented the headset
+#### Rented the headset
  - Frame, two parts
  - Sensors
  - Liquid
@@ -31,7 +31,7 @@ Rented the headset
  - USB-Stick
  - Serial Number
 
-Headset intro
+#### Headset intro
  - Not more than 8 refreshments per second
  - Realistically 1 thought/second
  - Threshold at about 50
@@ -44,4 +44,11 @@ Headset intro
  - Learn commands one by one
  - Small trainings sessions
 
- > Does EMOTIV work with Linux?
+#### Does EMOTIV work with Linux?
+- Beta version for Ununtu
+- EMOTIV beta might be more of an alpha0
+
+
+### 27.04.2021
+Headset training.  
+Added a idea tag for issues. To mark potential other projet ideas.
