@@ -1,0 +1,174 @@
+[
+    {
+        "id": "b5b34cbd.70daa8",
+        "type": "tab",
+        "label": "Flow1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "cbf8764b.dffa",
+        "type": "EMOTIV",
+        "z": "b5b34cbd.70daa8",
+        "name": "EMOTIV",
+        "x": 220,
+        "y": 300,
+        "wires": [
+            [
+                "d0c398e1.9d27f8"
+            ]
+        ]
+    },
+    {
+        "id": "d0c398e1.9d27f8",
+        "type": "Profile-Name",
+        "z": "b5b34cbd.70daa8",
+        "name": "ProfileName",
+        "profileName": "MichaTraining",
+        "x": 440,
+        "y": 300,
+        "wires": [
+            [
+                "8e47c093.4e22e",
+                "18ed4378.d2c7e5",
+                "cfb58ab8.3e55d"
+            ]
+        ]
+    },
+    {
+        "id": "8e47c093.4e22e",
+        "type": "MentalCommand",
+        "z": "b5b34cbd.70daa8",
+        "name": "MentalCommands",
+        "actionName": "left",
+        "mcSen": 10,
+        "x": 710,
+        "y": 300,
+        "wires": [
+            [
+                "e7f8ce11.aab068"
+            ]
+        ]
+    },
+    {
+        "id": "18ed4378.d2c7e5",
+        "type": "MentalCommand",
+        "z": "b5b34cbd.70daa8",
+        "name": "MentalCommands",
+        "actionName": "right",
+        "mcSen": 10,
+        "x": 710,
+        "y": 420,
+        "wires": [
+            [
+                "baa3f00b.5448b8"
+            ]
+        ]
+    },
+    {
+        "id": "e7f8ce11.aab068",
+        "type": "function",
+        "z": "b5b34cbd.70daa8",
+        "name": "",
+        "func": "msg.payload = \"left\"\nreturnmsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 900,
+        "y": 300,
+        "wires": [
+            [
+                "60de852e.7f5c8c",
+                "5e911469.5aa7bc"
+            ]
+        ]
+    },
+    {
+        "id": "baa3f00b.5448b8",
+        "type": "function",
+        "z": "b5b34cbd.70daa8",
+        "name": "",
+        "func": "msg.payload = \"right\"\nreturnmsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 900,
+        "y": 420,
+        "wires": [
+            [
+                "60de852e.7f5c8c",
+                "5e911469.5aa7bc"
+            ]
+        ]
+    },
+    {
+        "id": "60de852e.7f5c8c",
+        "type": "debug",
+        "z": "b5b34cbd.70daa8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "5e911469.5aa7bc",
+        "type": "websocketout",
+        "z": "b5b34cbd.70daa8",
+        "name": "",
+        "server": "35b7a091.fb983",
+        "client": "",
+        "x": 1120,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "cfb58ab8.3e55d",
+        "type": "MentalCommand",
+        "z": "b5b34cbd.70daa8",
+        "name": "MentalCommands",
+        "actionName": "neutral",
+        "mcSen": 10,
+        "x": 720,
+        "y": 180,
+        "wires": [
+            [
+                "7897b511.ad45bc"
+            ]
+        ]
+    },
+    {
+        "id": "7897b511.ad45bc",
+        "type": "function",
+        "z": "b5b34cbd.70daa8",
+        "name": "",
+        "func": "msg.payload = \"neutral\"\nreturnmsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 920,
+        "y": 180,
+        "wires": [
+            [
+                "60de852e.7f5c8c",
+                "5e911469.5aa7bc"
+            ]
+        ]
+    },
+    {
+        "id": "35b7a091.fb983",
+        "type": "websocketlistener",
+        "path": "/ws/mental",
+        "wholemsg": "false"
+    }
+]

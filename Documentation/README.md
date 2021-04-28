@@ -7,6 +7,7 @@
  - EMOTIV BCI
  - node-red-emotiv-toolbox
 
+<br>
 
 ### 21.04.2021
 #### Trying to create a connection between node-red and arduino
@@ -21,6 +22,7 @@
     - > Only one software can connect to a serial connection at a time. Do not use Arduinos (or any) serial monitor and node-red at the same time
     - The Arduino repeats the message sent from the node-red dashboard
 
+<br>
 
 ### 26.04.2021
 #### Rented the headset
@@ -48,7 +50,35 @@
 - Beta version for Ununtu
 - EMOTIV beta might be more of an alpha0
 
+<br>
 
 ### 27.04.2021
-Headset training.  
-Added a idea tag for issues. To mark potential other projet ideas.
+#### Headset training
+ - Training commands
+ - Makes no sense
+ - Testing with second Person
+ - Similar results on first approach
+ - Feel intense thinking in certain area of brain.
+    - > Meditation ?
+    - Feels weird. Like flexing a muscle, but with parts of the brain
+ - Wearing headset, start at base, adjust left three sensors first
+ - Bad connection? More lube -> like oil in a pan
+ - Bad eeg? Relax. Breath. Muscle movements can impact the eeg
+
+#### Added a idea tag for issues. To mark potential other projet ideas.
+
+<br>
+
+### 28.04.2021
+#### Headset training
+ - Issue connecting the headset bluetooth connetion?
+    - Reattach hedset usb-dongle
+ - This might be not as easy as I thought..
+
+#### Creating sounds
+- Virtual oscillators
+    - One per command
+
+#### EMOTIV and node-red
+- Client secret and id added in `\\Users\$USER$\.node-red\node_modules\node-red-contrib-emotiv-bci\emotiv-bci`
+- Command node not conneting

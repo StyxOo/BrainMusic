@@ -1,0 +1,103 @@
+[
+    {
+        "id": "595f12f5.07bacc",
+        "type": "tab",
+        "label": "Emotiv Integration Test",
+        "disabled": false,
+        "info": "# A quick test of the Emotiv integration\nSmall example of emotiv to node-red integration"
+    },
+    {
+        "id": "cdf1a577.7e59d8",
+        "type": "Mental-Command",
+        "z": "595f12f5.07bacc",
+        "name": "Mental Commands",
+        "actionName": "push",
+        "mcSen": 10,
+        "x": 790,
+        "y": 320,
+        "wires": [
+            [
+                "a1979e2b.3cb0b",
+                "fa42c567.3bf828"
+            ]
+        ]
+    },
+    {
+        "id": "5cb682b1.5a930c",
+        "type": "EMOTIV",
+        "z": "595f12f5.07bacc",
+        "name": "EMOTIV",
+        "x": 280,
+        "y": 320,
+        "wires": [
+            [
+                "e84e62f2.29cca"
+            ]
+        ]
+    },
+    {
+        "id": "e84e62f2.29cca",
+        "type": "Profile-Name",
+        "z": "595f12f5.07bacc",
+        "name": "Profile Name",
+        "profileName": "Me Myself and I",
+        "x": 510,
+        "y": 320,
+        "wires": [
+            [
+                "cdf1a577.7e59d8"
+            ]
+        ]
+    },
+    {
+        "id": "a1979e2b.3cb0b",
+        "type": "function",
+        "z": "595f12f5.07bacc",
+        "name": "",
+        "func": "oscillator.start();\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Der Code hier wird ausgeführt,\n// wenn der Node gestartet wird\n\n// Sources - Javascript oscillator\n// create web audio api context\nvar audioCtx = new(window.AudioContext || window.webkitAudioContext)();\n\nvar oscillator = audioCtx.createOscillator();\noscillator.type = 'square';\noscillator.frequency.value = frequency; // value in hertz\noscillator.connect(audioCtx.destination);\n\nflow.oscillator = oscillator;\n\n\nfunction playNote(frequency, duration) {\n  // create Oscillator node\n  var oscillator = audioCtx.createOscillator();\n\n  oscillator.type = 'square';\n  oscillator.frequency.value = frequency; // value in hertz\n  oscillator.connect(audioCtx.destination);\n  oscillator.start();\n  \n  /*\n  setTimeout(\n    function() {\n      oscillator.stop();\n      playMelody();\n    }, duration);\n  */\n}\n\n/*\nfunction playMelody() {\n  if (notes.length > 0) {\n    note = notes.pop();\n    playNote(note[0], 1000 * 256 / (note[1] * tempo));\n  }\n}\n\nnotes = [\n  [659, 4],\n  [659, 4],\n  [659, 4],\n  [523, 8],\n  [0, 16],\n  [783, 16],\n  [659, 4],\n  [523, 8],\n  [0, 16],\n  [783, 16],\n  [659, 4],\n  [0, 4],\n  [987, 4],\n  [987, 4],\n  [987, 4],\n  [1046, 8],\n  [0, 16],\n  [783, 16],\n  [622, 4],\n  [523, 8],\n  [0, 16],\n  [783, 16],\n  [659, 4]\n];\n\nnotes.reverse();\ntempo = 100;\n\nplayMelody();\n\n*/",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fa42c567.3bf828",
+        "type": "ui_text",
+        "z": "595f12f5.07bacc",
+        "group": "1ed500bc.e592bf",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Command",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1030,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "1ed500bc.e592bf",
+        "type": "ui_group",
+        "name": "Standard",
+        "tab": "7b24a0ad.4e504",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "7b24a0ad.4e504",
+        "type": "ui_tab",
+        "name": "Serial Connection Test",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
