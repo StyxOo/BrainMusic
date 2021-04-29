@@ -37,9 +37,9 @@
     },
     {
         "id": "8e47c093.4e22e",
-        "type": "MentalCommand",
+        "type": "Mental-Command",
         "z": "b5b34cbd.70daa8",
-        "name": "MentalCommands",
+        "name": "Mental Commands",
         "actionName": "left",
         "mcSen": 10,
         "x": 710,
@@ -52,9 +52,9 @@
     },
     {
         "id": "18ed4378.d2c7e5",
-        "type": "MentalCommand",
+        "type": "Mental-Command",
         "z": "b5b34cbd.70daa8",
-        "name": "MentalCommands",
+        "name": "Mental Commands",
         "actionName": "right",
         "mcSen": 10,
         "x": 710,
@@ -122,7 +122,7 @@
     },
     {
         "id": "5e911469.5aa7bc",
-        "type": "websocketout",
+        "type": "websocket out",
         "z": "b5b34cbd.70daa8",
         "name": "",
         "server": "35b7a091.fb983",
@@ -133,9 +133,9 @@
     },
     {
         "id": "cfb58ab8.3e55d",
-        "type": "MentalCommand",
+        "type": "Mental-Command",
         "z": "b5b34cbd.70daa8",
-        "name": "MentalCommands",
+        "name": "Mental Commands",
         "actionName": "neutral",
         "mcSen": 10,
         "x": 720,
@@ -167,7 +167,7 @@
     },
     {
         "id": "35b7a091.fb983",
-        "type": "websocketlistener",
+        "type": "websocket-listener",
         "path": "/ws/mental",
         "wholemsg": "false"
     }

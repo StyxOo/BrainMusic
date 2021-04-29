@@ -82,3 +82,11 @@
 #### EMOTIV and node-red
 - Client secret and id added in `\\Users\$USER$\.node-red\node_modules\node-red-contrib-emotiv-bci\emotiv-bci`
 - Command node not conneting
+
+<br>
+
+### 29.04.2021
+#### Command node
+ - Command node was not connecting
+ - Reinstalled node-red and bci-toolbox
+ - Remove and readd command node

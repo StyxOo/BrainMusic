@@ -188,7 +188,7 @@
     {
         "id": "1ed500bc.e592bf",
         "type": "ui_group",
-        "name": "Standard",
+        "name": "Serial connection",
         "tab": "7b24a0ad.4e504",
         "order": 1,
         "disp": true,
@@ -198,7 +198,7 @@
     {
         "id": "7b24a0ad.4e504",
         "type": "ui_tab",
-        "name": "Serial Connection Test",
+        "name": "Home",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false

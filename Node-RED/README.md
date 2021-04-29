@@ -10,3 +10,5 @@ Here you can find all the JSON backups of created flows. Import them as needed.
     - node-red-dashboard            v2.28.2
     - node-red-node-serialport      v0.13.0
 
+### Notes
+- Only one flow accessing EMOTIV can be enabled at a time.
