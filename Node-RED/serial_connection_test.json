@@ -198,7 +198,7 @@
     {
         "id": "7b24a0ad.4e504",
         "type": "ui_tab",
-        "name": "Home",
+        "name": "Tests",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false

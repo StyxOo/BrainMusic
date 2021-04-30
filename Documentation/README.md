@@ -1,5 +1,6 @@
 ## A small histrory of what happended when
 
+---
 
 ### 19.04.2021
 #### Installing of required software:
@@ -7,7 +8,7 @@
  - EMOTIV BCI
  - node-red-emotiv-toolbox
 
-<br>
+---
 
 ### 21.04.2021
 #### Trying to create a connection between node-red and arduino
@@ -22,7 +23,7 @@
     - > Only one software can connect to a serial connection at a time. Do not use Arduinos (or any) serial monitor and node-red at the same time
     - The Arduino repeats the message sent from the node-red dashboard
 
-<br>
+---
 
 ### 26.04.2021
 #### Rented the headset
@@ -50,7 +51,7 @@
 - Beta version for Ununtu
 - EMOTIV beta might be more of an alpha0
 
-<br>
+---
 
 ### 27.04.2021
 #### Headset training
@@ -67,7 +68,7 @@
 
 #### Added a idea tag for issues. To mark potential other projet ideas.
 
-<br>
+---
 
 ### 28.04.2021
 #### Headset training
@@ -83,10 +84,21 @@
 - Client secret and id added in `\\Users\$USER$\.node-red\node_modules\node-red-contrib-emotiv-bci\emotiv-bci`
 - Command node not conneting
 
-<br>
+---
 
 ### 29.04.2021
 #### Command node
  - Command node was not connecting
  - Reinstalled node-red and bci-toolbox
  - Remove and readd command node
+
+---
+
+### 30.04.2021
+#### Buzzer
+ - A complete connection between the EMOTIV headset and the arduino board
+ - Ardunio sketches can not be updated when node-red is accessing the serial port
+ - Arduino serial string reading is slow. Therfore it works with chars. The value command value which will be transmitted, therfore needs to be converted to a char in node-red. So the arduino can read the next byte every tick and have the full required info.
+ - Arduino circuit backups. Which software?
+    - > [Tinkercad](https://www.tinkercad.com)
+    - Link to circuit can be found at the top of the appropriate arduino sketch

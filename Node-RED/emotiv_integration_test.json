@@ -44,22 +44,32 @@
         "y": 320,
         "wires": [
             [
-                "20e8f785.5ca4b8"
+                "111c465c.1d038a"
             ]
         ]
     },
     {
-        "id": "20e8f785.5ca4b8",
-        "type": "ui_text",
+        "id": "111c465c.1d038a",
+        "type": "ui_gauge",
         "z": "595f12f5.07bacc",
+        "name": "",
         "group": "26fbb413.5398dc",
-        "order": 2,
+        "order": 4,
         "width": 0,
         "height": 0,
-        "name": "",
-        "label": "Lift Strength: ",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
+        "gtype": "gage",
+        "title": "Lift Strength: ",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
         "x": 990,
         "y": 320,
         "wires": []
@@ -77,7 +87,7 @@
     {
         "id": "7b24a0ad.4e504",
         "type": "ui_tab",
-        "name": "Home",
+        "name": "Tests",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false

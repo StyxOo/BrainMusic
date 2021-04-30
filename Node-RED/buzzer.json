@@ -1,0 +1,180 @@
+[
+    {
+        "id": "f69c44f4.8899d8",
+        "type": "tab",
+        "label": "Buzzer",
+        "disabled": false,
+        "info": "# A simple buzzer\nThe arduino board will power the buzzer depending on a given commands strength.\nThis is a full connection between the EMOTIV headset and the arduino board."
+    },
+    {
+        "id": "9162205d.86f9a",
+        "type": "EMOTIV",
+        "z": "f69c44f4.8899d8",
+        "name": "EMOTIV",
+        "x": 200,
+        "y": 300,
+        "wires": [
+            [
+                "e036b90f.b1a638"
+            ]
+        ]
+    },
+    {
+        "id": "e036b90f.b1a638",
+        "type": "Profile-Name",
+        "z": "f69c44f4.8899d8",
+        "name": "Profile Name",
+        "profileName": "Me Myself and I",
+        "x": 430,
+        "y": 300,
+        "wires": [
+            [
+                "d7e9854d.a25f88"
+            ]
+        ]
+    },
+    {
+        "id": "d7e9854d.a25f88",
+        "type": "Mental-Command",
+        "z": "f69c44f4.8899d8",
+        "name": "Mental Commands",
+        "actionName": "lift",
+        "mcSen": 10,
+        "x": 700,
+        "y": 300,
+        "wires": [
+            [
+                "1fb6b136.be0abf"
+            ]
+        ]
+    },
+    {
+        "id": "c71b3be1.c11db8",
+        "type": "ui_gauge",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "group": "9c89497a.e710c8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Command strength",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 1090,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "2b761077.ddd71",
+        "type": "serial out",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "serial": "de102f00.2fb6",
+        "x": 1210,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "1fb6b136.be0abf",
+        "type": "function",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "func": "if(flow.last != msg.payload)\n{\n    flow.last = msg.payload;\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 300,
+        "wires": [
+            [
+                "c71b3be1.c11db8",
+                "186ba8f8.967467"
+            ]
+        ]
+    },
+    {
+        "id": "186ba8f8.967467",
+        "type": "function",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "func": "// This function converts the numeric value of the mental command\n// to a single char. This way the arduino can read all required\n// information in every single tick. Which reduces delay.\n\nmsg.payload = String.fromCharCode(msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 360,
+        "wires": [
+            [
+                "2b761077.ddd71",
+                "c003d543.f91768"
+            ]
+        ]
+    },
+    {
+        "id": "c003d543.f91768",
+        "type": "ui_text",
+        "z": "f69c44f4.8899d8",
+        "group": "9c89497a.e710c8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Value as char",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1240,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "9c89497a.e710c8",
+        "type": "ui_group",
+        "name": "Buzzer",
+        "tab": "ad72719e.28452",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "de102f00.2fb6",
+        "type": "serial-port",
+        "serialport": "COM3",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "ad72719e.28452",
+        "type": "ui_tab",
+        "name": "BrainMusic",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
