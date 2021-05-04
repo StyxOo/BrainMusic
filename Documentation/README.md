@@ -98,7 +98,21 @@
 #### Buzzer
  - A complete connection between the EMOTIV headset and the arduino board
  - Ardunio sketches can not be updated when node-red is accessing the serial port
- - Arduino serial string reading is slow. Therfore it works with chars. The value command value which will be transmitted, therfore needs to be converted to a char in node-red. So the arduino can read the next byte every tick and have the full required info.
+ - The Arduino reads serial intput in bytes. One byte per loop. Apparently each integer set by node-red, is received as a string. So 55 is two character. This causes a delay when creating the sounds, as reading the string from the serial port takes time. Therefore the numerical value is converted to a single char ([64 becomes `@`](http://www.asciitable.com)), which is then transmited
  - Arduino circuit backups. Which software?
     - > [Tinkercad](https://www.tinkercad.com)
     - Link to circuit can be found at the top of the appropriate arduino sketch
+ - The passive buzzer on the Arduino creates a sound of varying pitch, depending on the commands strength
+
+ ### 03.05.2021
+ #### Return headset
+  - Returned to coworker, email confirmation
+
+#### Learning electrical engineering
+ - A few basics to make sure, I know how to work with Arduino again
+
+#### 3D Printing
+ - Got access to an old 3d printer
+ - Might be useful for parts which play an instrument?
+ - Probably needs calibration
+   - Follow a [guide](https://teachingtechyt.github.io/calibration.html)? 

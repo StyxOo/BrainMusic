@@ -8,6 +8,8 @@
 
 #define BUZZER_PIN 13
 #define TONE_TIMEOUT 500
+#define FREQUENCY_MIN 110 // This is the starting frequency for the buzzer. 110 is a.
+#define FREQUENCY_MAX 440 // 440 is also a, but 2 octaves higher.
 
 void setup() {
   // put your setup code here, to run once:
@@ -23,7 +25,7 @@ void loop() {
   // put your main code here, to run repeatedly:
   if (Serial.available() > 0) {
     int value = Serial.read(); // It is expected, that input arrives in a single byte. Therefore only a single character gets send to the serial port
-    int mappedValue = map(value, 0, 100, 110, 880);
+    int mappedValue = map(value, 0, 100, FREQUENCY_MIN, FREQUENCY_MAX);
     Serial.println(value);
     tone(BUZZER_PIN, mappedValue);
     lastIn = millis();
