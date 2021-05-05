@@ -98,14 +98,16 @@
 #### Buzzer
  - A complete connection between the EMOTIV headset and the arduino board
  - Ardunio sketches can not be updated when node-red is accessing the serial port
- - The Arduino reads serial intput in bytes. One byte per loop. Apparently each integer set by node-red, is received as a string. So 55 is two character. This causes a delay when creating the sounds, as reading the string from the serial port takes time. Therefore the numerical value is converted to a single char ([64 becomes `@`](http://www.asciitable.com)), which is then transmited
+ - The Arduino reads serial intput in bytes. ~~One byte per loop.~~ Apparently each integer set by node-red, is received as a string. So 55 is two character. This causes a delay when creating the sounds, as reading the string from the serial port takes time. Therefore the numerical value is converted to a single char ([64 becomes `@`](http://www.asciitable.com)), which is then transmited
  - Arduino circuit backups. Which software?
     - > [Tinkercad](https://www.tinkercad.com)
     - Link to circuit can be found at the top of the appropriate arduino sketch
  - The passive buzzer on the Arduino creates a sound of varying pitch, depending on the commands strength
 
- ### 03.05.2021
- #### Return headset
+---
+
+### 03.05.2021
+#### Return headset
   - Returned to coworker, email confirmation
 
 #### Learning electrical engineering
@@ -116,3 +118,21 @@
  - Might be useful for parts which play an instrument?
  - Probably needs calibration
    - Follow a [guide](https://teachingtechyt.github.io/calibration.html)? 
+
+---
+
+### 04.05.2021
+#### Deconstruction of an old Project
+ - Deconstructed the fontys car
+ - Learned some more things about electronics
+ - Citrus acid can clean clean spills of household battery acid. As battery acid is not an acid but alkaline. [See here for more](https://www.energizer.com/about-batteries/what-is-battery-acid).
+ - Looking at [this idea](https://github.com/StyxOo/BrainMusic/issues/1), I think it should be quite doable. Maybe one could have races?
+
+---
+
+### 05.05.2021
+#### Arduino Serial
+ - Arduino can read many bytes per loop.
+ - A demo which reads 4 bytes per loop can be found at `../Ardunio/serial_communication_test`
+ - > When testing whith a serial monitor: make sure to not send a newline character in the end. Otherwise the first loop will read the desired output. The second loop will read the newline as remaning byte and will output a newline and whichever the last three characters where.
+ - The test is set up to receive 4 characters. According to the four command strengths
