@@ -118,6 +118,9 @@
  - Might be useful for parts which play an instrument?
  - Probably needs calibration
    - Follow a [guide](https://teachingtechyt.github.io/calibration.html)? 
+   - [x] PID Autotune
+   - [x] Extruder E-Steps
+
 
 ---
 
@@ -136,3 +139,46 @@
  - A demo which reads 4 bytes per loop can be found at `../Ardunio/serial_communication_test`
  - > When testing whith a serial monitor: make sure to not send a newline character in the end. Otherwise the first loop will read the desired output. The second loop will read the newline as remaning byte and will output a newline and whichever the last three characters where.
  - The test is set up to receive 4 characters. According to the four command strengths
+
+---
+
+### 06.05.2021
+#### Motor tests
+ - Connected a motor to an external power source
+   - Potentiometer for ontrolling speed
+ - Also connected a stepper motor to the arduino
+   - [Like this](https://www.tutorialspoint.com/arduino/arduino_stepper_motor.htm)
+   - Steps can be controlled via code
+
+---
+
+### 07.05.2021 - 10.05.2021
+#### 3D-Printer calibration
+ - Required several times of rebuilding firmware as well as many small prints
+ - Steps completed:
+   - [x] Frame
+   - [x] PID Autotune Nozzle
+   - [x] PID Autotune Bed
+   - [x] Bed leveling
+   - [x] Extruder E-Steps
+   - [x] Flow calibration
+   - [x] Stepper motor driver current
+   - [x] Retraction tuning
+   - [x] Temperature tuning
+   - [x] Acceleration tuning
+   - [ ] Linear advance
+      - Not possible with the XY-2 Pro Stepper drivers.
+
+---
+
+### 11.05.2021 - 21.05.2021
+#### How can I physically play an instrument
+ - I have a bass guitar for testing
+ - Strings are quite big and easily accessible
+ - How will a mechanism hold?
+   - Lego and double sided tape as a base?
+ - What will play the strins?
+   - An arm?
+   - A spinning wheel?
+   - How will it take the command strength into account?
+ - Using Lego to mock up some ideas
