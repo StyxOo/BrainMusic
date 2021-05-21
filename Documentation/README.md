@@ -171,7 +171,7 @@
 
 ---
 
-### 11.05.2021 - 21.05.2021
+### 11.05.2021 - 14.05.2021
 #### How can I physically play an instrument
  - I have a bass guitar for testing
  - Strings are quite big and easily accessible
@@ -182,3 +182,40 @@
    - A spinning wheel?
    - How will it take the command strength into account?
  - Using Lego to mock up some ideas
+
+---
+
+### 17.05.2021
+#### Meeting
+ - Progession on playing instruments
+ - If music is completed, have a look at a car project
+ - Sensor liquid is now available
+   - Can the bottle be refilled?
+
+### 18.05.2021
+#### 3d Modelling
+ - Which software?
+   - > [FreeCAD](https://www.freecadweb.org)
+ - Getting familiar with the software
+ - Trying to model a basic lego block
+   - Can be found in `../Models/freeCAD/Block.FCStd`
+
+### 19.05.2021
+#### Connecting hardware with lego
+ - How can the existing hardware, motors etc, be connected with lego pieces?
+ - Thining about ways to connect the stepper motor
+   - Attachment for the stepper motor in `../Models/freeCAD/Stepper_Motor_Connector.FCStd`
+   - > Probably need caliphers for more precise measurements
+   - Iterating connection design
+     - > Measurements are not printed exact by the printer. needs some trial and error to dial in...
+
+### 20.05.2021
+#### Picking up headset
+ - Complete contents as listed in the earlier checklist
+ - Liquid bottle can not be easily refilled
+   - > Might be possible with a syringe?
+
+#### Mental commands training
+ - First commands is always triggered. Trained it too much?
+
+
