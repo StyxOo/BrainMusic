@@ -2,3 +2,4 @@ Formalities/
 build/
 .theia/
 .history/
+*.FCStd1
