@@ -263,3 +263,41 @@
    - [Can be seen here](https://youtu.be/ROO-vfrWCQ4)
    - The motor tensions a spring
    - The spring releases a hammer
+
+---
+
+### 31.05.2021 - 27.06.2021
+#### Finalizing Hardware
+ - Experimented with the number of drops on the driving wheel. Two works, three is too much. The angle becomes too steep.
+ - Set up the concept of the second prototype around the bass. And it is able to make the first sounds! [Can be seen here](https://youtu.be/QirRiCVQM7E)
+ - Trying to resolve isues with stepper motor power
+   - Repinned an adjustable power supply
+     - he driver board is rated for 5-12V, the motor for 5V
+     - More power makes steps more pronounced
+     - Also heats up motor
+     - No improvements -> Probably not a power issue
+   - Apparently a signal timing issue caused irregulatities
+ - Current prototype will not fit on base four times
+ - Oriented lenght ways along bass
+ - Created a longer driver wheel to move all hammers
+ - Proof of concept for one hammer ![here](./Media/IMG_20210617_160057.jpg)
+   - Relies on rubbers to pull down towards the string, instead fo a big convuluted lego construction
+ - All hammers attached to bass ![like this](./Media/IMG_20210619_153321.jpg)
+ - Sound intensity controlled by servos mounted above
+   - Connected to the top of the hammers with a rubber as well
+   - Pulling against the rubber below, the intensity can be dialed in
+   - Hard to hear on video, but [here it is](https://youtu.be/KiKZ2MzRZEQ)
+   - Also adjusted the bass strings height to work for all hammers
+  
+#### Interface to configure servos
+ - The servos controlling the level of sound need to be set up individually. Because each rubber has different proberties, different angles lead to different results
+ - Considered setting up servoes through node-red or directly on arduino
+   - The servos themselfes do not really have anything to do with node-red, so I decided to do it on the arduino itself
+ - Wire up a screen and a few buttons to be able to change settings
+   - Troubleshooting weird icons on lcd screen [as seen here](https://youtu.be/Rxcgkt5q_3U)
+   - Screen can not be powered from the external power supply. Needs the wavelength as provided by the arduino
+ - Clean up wireing
+   - ![Before](./Media/IMG_20210625_025519.jpg)
+   - ![After](./Media/IMG_20210626_205956.jpg)
+ - Attached Electronics to bass. I decided to use hot glue. It acts as an isolator on the electronics, does not damapge the bass, can be easily removed, but also still holds. ![Have a look](./Media/IMG_20210629_194348.jpg)
+ - Interface code can be found in `../Arduino/servo_interface`
