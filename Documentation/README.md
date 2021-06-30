@@ -301,3 +301,4 @@
    - ![After](./Media/IMG_20210626_205956.jpg)
  - Attached Electronics to bass. I decided to use hot glue. It acts as an isolator on the electronics, does not damapge the bass, can be easily removed, but also still holds. ![Have a look](./Media/IMG_20210629_194348.jpg)
  - Interface code can be found in `../Arduino/servo_interface`
+ - A wireing diagram can be found [here](https://www.tinkercad.com/things/bG4AhXoKbqk-servo-interface)
