@@ -192,6 +192,8 @@
  - Sensor liquid is now available
    - Can the bottle be refilled?
 
+---
+
 ### 18.05.2021
 #### 3d Modelling
  - Which software?
@@ -199,6 +201,11 @@
  - Getting familiar with the software
  - Trying to model a basic lego block
    - Can be found in `../Models/freeCAD/Block.FCStd`
+ - Models are organized in the `../Models` directory
+   - `../Models/freeCAD` contains freecad files
+   - `../Models/stl` contains the stl files which are used in the Cura slicer for 3D printing
+
+---
 
 ### 19.05.2021
 #### Connecting hardware with lego
@@ -209,6 +216,8 @@
    - Iterating connection design
      - > Measurements are not printed exact by the printer. needs some trial and error to dial in...
 
+---
+
 ### 20.05.2021
 #### Picking up headset
  - Complete contents as listed in the earlier checklist
@@ -218,4 +227,39 @@
 #### Mental commands training
  - First commands is always triggered. Trained it too much?
 
+---
 
+### 22.05.2021 - 28.05.2021
+#### Set up a proper workspace
+ - ![Workspace](./Media/IMG_20210523_234147.jpg)
+
+#### Media for documentation
+ - All videos and images can be found in the `./Media` directory
+ - Some might be not directly used in the documentation. Fell free to snoop around
+
+#### Building hardware
+ - The process of creating the hardware is much more tedious than expected.
+ - Implementing the electrical motors with lego took more time and attempts than expected
+ - The first idea was to print an attachment to a lego axle ![Attachment](./Media/IMG_20210521_150836.jpg)
+   - Does not work. The axle is not printed exact enough. Furthermore the attachment hole does not have proper dimensions.
+ - Trying to dial in the motor attachment dimensions ![Connectors](./Media/IMG_20210521_233731.jpg)
+ - Connect a lego fitting gear to the motor?
+   - Design gear in FreeCAD ![Gear](./Media/IMG_20210522_130330.jpg)
+   - Printing ![Printing](./Media/IMG_20210522_005345.jpg)
+   - Check fit ![Check](./Media/IMG_20210521_233750.jpg)
+   - Rinse and repeat until it fits ![Gear series](./Media/IMG_20210522_151935.jpg)
+ - The engine needs to be attached to lego pieces
+   - Some kind of mount to lego space is needed.
+   - Back to FreeCAD ![Mount](./Media/IMG_20210522_215737.jpg)
+   - How the it works with a gear attached ![Mounting](./Media/IMG_20210523_012441.jpg)
+ - [It works!!](https://youtu.be/11dx0H1Ohlk)
+ - The actual finger is build from lego
+  - Allows fast prototyping and iteration
+  - [First results seemed promising](https://youtu.be/SAyn8TfC4LA)
+  - Some issues with not releasing the string fast enough to create a sound. If the finger pulls stronger, the motor does not provide enough power and gets stuck.
+  - [A second motor is added](https://youtu.be/E1cup7A4TuQ)
+   - Issues with string release and lack in strength persists
+ - Change how motor power is used
+   - [Can be seen here](https://youtu.be/ROO-vfrWCQ4)
+   - The motor tensions a spring
+   - The spring releases a hammer
