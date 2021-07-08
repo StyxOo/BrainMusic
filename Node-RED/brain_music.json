@@ -1,0 +1,950 @@
+[
+    {
+        "id": "f69c44f4.8899d8",
+        "type": "tab",
+        "label": "BrainMusic",
+        "disabled": false,
+        "info": "# Brain Music\nThis connects an EMOTIV headset to the hardware section of the BrainMusic project. All controll mode and command conversions happen here."
+    },
+    {
+        "id": "9162205d.86f9a",
+        "type": "EMOTIV",
+        "z": "f69c44f4.8899d8",
+        "name": "EMOTIV",
+        "x": 80,
+        "y": 180,
+        "wires": [
+            [
+                "e036b90f.b1a638"
+            ]
+        ]
+    },
+    {
+        "id": "e036b90f.b1a638",
+        "type": "Profile-Name",
+        "z": "f69c44f4.8899d8",
+        "name": "Profile Name",
+        "profileName": "Me Myself and I",
+        "x": 290,
+        "y": 180,
+        "wires": [
+            [
+                "d7e9854d.a25f88",
+                "cbb00c6c.8f2e3",
+                "ae59a546.5ebde8",
+                "1f9fb6f5.ccba49"
+            ]
+        ],
+        "info": "# Profile Name\nThis needs to be changed to whichever profile name you will work with."
+    },
+    {
+        "id": "d7e9854d.a25f88",
+        "type": "Mental-Command",
+        "z": "f69c44f4.8899d8",
+        "name": "Mental Commands",
+        "actionName": "lift",
+        "mcSen": 10,
+        "x": 560,
+        "y": 180,
+        "wires": [
+            [
+                "92efe5a1.10e5f8"
+            ]
+        ]
+    },
+    {
+        "id": "2b761077.ddd71",
+        "type": "serial out",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "serial": "de102f00.2fb6",
+        "x": 1650,
+        "y": 360,
+        "wires": [],
+        "info": "# Serial Port\nMake sure this is set up to work appropriately with your adruino COM port."
+    },
+    {
+        "id": "9c57037.7fe3",
+        "type": "ui_switch",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "label": "Direct",
+        "tooltip": "Direct controll mode has one command correspond to the strength each string should be played with",
+        "group": "c79b1101.22304",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "x": 270,
+        "y": 800,
+        "wires": [
+            [
+                "805a9f30.ba717"
+            ]
+        ]
+    },
+    {
+        "id": "96db189.73ceee8",
+        "type": "ui_switch",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "label": "Single",
+        "tooltip": "",
+        "group": "c79b1101.22304",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "x": 270,
+        "y": 880,
+        "wires": [
+            [
+                "323e9bb9.cb3144"
+            ]
+        ]
+    },
+    {
+        "id": "805a9f30.ba717",
+        "type": "switch",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 430,
+        "y": 800,
+        "wires": [
+            [
+                "a98d9c86.216e3",
+                "837daf15.f29bc",
+                "31065c57.c1db84"
+            ]
+        ]
+    },
+    {
+        "id": "a98d9c86.216e3",
+        "type": "function",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "func": "\nmsg.payload = !msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 140,
+        "y": 880,
+        "wires": [
+            [
+                "96db189.73ceee8"
+            ]
+        ]
+    },
+    {
+        "id": "323e9bb9.cb3144",
+        "type": "switch",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 430,
+        "y": 880,
+        "wires": [
+            [
+                "32c1cc3f.2c0f04",
+                "837daf15.f29bc",
+                "4df1bf20.e9d3e"
+            ]
+        ]
+    },
+    {
+        "id": "32c1cc3f.2c0f04",
+        "type": "function",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "func": "\nmsg.payload = !msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 140,
+        "y": 800,
+        "wires": [
+            [
+                "9c57037.7fe3"
+            ]
+        ]
+    },
+    {
+        "id": "84123294.57083",
+        "type": "ui_switch",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "label": "Up Down",
+        "tooltip": "",
+        "group": "c79b1101.22304",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "x": 280,
+        "y": 960,
+        "wires": [
+            [
+                "c5aae17.5e0552"
+            ]
+        ]
+    },
+    {
+        "id": "837daf15.f29bc",
+        "type": "function",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "func": "\nmsg.payload = !msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 140,
+        "y": 960,
+        "wires": [
+            [
+                "84123294.57083"
+            ]
+        ]
+    },
+    {
+        "id": "c5aae17.5e0552",
+        "type": "switch",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 430,
+        "y": 960,
+        "wires": [
+            [
+                "a98d9c86.216e3",
+                "32c1cc3f.2c0f04",
+                "5455b3bb.eeff1c"
+            ]
+        ]
+    },
+    {
+        "id": "31065c57.c1db84",
+        "type": "change",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "controllMode",
+                "pt": "flow",
+                "to": "Direct",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 800,
+        "wires": [
+            [
+                "72339d74.224904"
+            ]
+        ]
+    },
+    {
+        "id": "4df1bf20.e9d3e",
+        "type": "change",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "controllMode",
+                "pt": "flow",
+                "to": "Single",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 880,
+        "wires": [
+            [
+                "72339d74.224904"
+            ]
+        ]
+    },
+    {
+        "id": "5455b3bb.eeff1c",
+        "type": "change",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "controllMode",
+                "pt": "flow",
+                "to": "UpDown",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 960,
+        "wires": [
+            [
+                "72339d74.224904"
+            ]
+        ]
+    },
+    {
+        "id": "72339d74.224904",
+        "type": "change",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "controllMode",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 890,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cbb00c6c.8f2e3",
+        "type": "Mental-Command",
+        "z": "f69c44f4.8899d8",
+        "name": "Mental Commands",
+        "actionName": "push",
+        "mcSen": 10,
+        "x": 570,
+        "y": 260,
+        "wires": [
+            [
+                "3d9b6b59.8d0b04"
+            ]
+        ]
+    },
+    {
+        "id": "ae59a546.5ebde8",
+        "type": "Mental-Command",
+        "z": "f69c44f4.8899d8",
+        "name": "Mental Commands",
+        "actionName": "left",
+        "mcSen": 10,
+        "x": 570,
+        "y": 340,
+        "wires": [
+            [
+                "f2ae5471.c15ad8"
+            ]
+        ]
+    },
+    {
+        "id": "1f9fb6f5.ccba49",
+        "type": "Mental-Command",
+        "z": "f69c44f4.8899d8",
+        "name": "Mental Commands",
+        "actionName": "right",
+        "mcSen": 10,
+        "x": 570,
+        "y": 420,
+        "wires": [
+            [
+                "487c969b.32c0e8"
+            ]
+        ]
+    },
+    {
+        "id": "92efe5a1.10e5f8",
+        "type": "rbe",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "x": 770,
+        "y": 180,
+        "wires": [
+            [
+                "2467333e.46f21c",
+                "f01a8c51.3a14f"
+            ]
+        ]
+    },
+    {
+        "id": "3d9b6b59.8d0b04",
+        "type": "rbe",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "x": 770,
+        "y": 260,
+        "wires": [
+            [
+                "8b7aa366.51879",
+                "472f5477.5624bc"
+            ]
+        ]
+    },
+    {
+        "id": "f2ae5471.c15ad8",
+        "type": "rbe",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "x": 770,
+        "y": 340,
+        "wires": [
+            [
+                "8a6c01cb.627ad",
+                "5538bfc4.c5401"
+            ]
+        ]
+    },
+    {
+        "id": "487c969b.32c0e8",
+        "type": "rbe",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "x": 770,
+        "y": 420,
+        "wires": [
+            [
+                "fa6e51f6.f7799",
+                "f75083b.b66018"
+            ]
+        ]
+    },
+    {
+        "id": "2467333e.46f21c",
+        "type": "change",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "commandA",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 980,
+        "y": 180,
+        "wires": [
+            [
+                "1c871f63.b61511"
+            ]
+        ]
+    },
+    {
+        "id": "8b7aa366.51879",
+        "type": "change",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "commandB",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 980,
+        "y": 260,
+        "wires": [
+            [
+                "1c871f63.b61511"
+            ]
+        ]
+    },
+    {
+        "id": "8a6c01cb.627ad",
+        "type": "change",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "commandC",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 980,
+        "y": 340,
+        "wires": [
+            [
+                "1c871f63.b61511"
+            ]
+        ]
+    },
+    {
+        "id": "fa6e51f6.f7799",
+        "type": "change",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "commandD",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 980,
+        "y": 420,
+        "wires": [
+            [
+                "1c871f63.b61511"
+            ]
+        ]
+    },
+    {
+        "id": "1c871f63.b61511",
+        "type": "switch",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "property": "controllMode",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Direct",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Single",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "UpDown",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 1190,
+        "y": 300,
+        "wires": [
+            [
+                "46a31ce.ebca5e4"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "46a31ce.ebca5e4",
+        "type": "function",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "func": "var valueA = flow.get(\"commandA\");\nvar valueB = flow.get(\"commandB\");\nvar valueC = flow.get(\"commandC\");\nvar valueD = flow.get(\"commandD\");\nvar charA = String.fromCharCode(valueA);\nvar charB = String.fromCharCode(valueB);\nvar charC = String.fromCharCode(valueC);\nvar charD = String.fromCharCode(valueD);\nnode.log(\"A: \" + valueA + \"  \" + charA);\nnode.log(\"B: \" + valueB + \"  \" + charB);\nnode.log(\"C: \" + valueC + \"  \" + charC);\nnode.log(\"D: \" + valueD + \"  \" + charD);\nmsg.payload = charA + charB + charC + charD;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1340,
+        "y": 180,
+        "wires": [
+            [
+                "cae5da95.392a38"
+            ]
+        ]
+    },
+    {
+        "id": "f01a8c51.3a14f",
+        "type": "ui_gauge",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "group": "8c0050a4.ac96c",
+        "order": 1,
+        "width": 3,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Lift",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 930,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "472f5477.5624bc",
+        "type": "ui_gauge",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "group": "8c0050a4.ac96c",
+        "order": 2,
+        "width": 3,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Push",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 930,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "5538bfc4.c5401",
+        "type": "ui_gauge",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "group": "8c0050a4.ac96c",
+        "order": 3,
+        "width": 3,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Left",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 930,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "f75083b.b66018",
+        "type": "ui_gauge",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "group": "8c0050a4.ac96c",
+        "order": 4,
+        "width": 3,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Right",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 930,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "8eaff2cd.9b2c1",
+        "type": "inject",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 630,
+        "y": 480,
+        "wires": [
+            [
+                "487c969b.32c0e8",
+                "f2ae5471.c15ad8",
+                "3d9b6b59.8d0b04",
+                "92efe5a1.10e5f8"
+            ]
+        ],
+        "info": "# Value Injection\nThis injects the value 0 for each command. It only happens once, at the beginning of this flow. This makes sure that even for untrained commands, the baseline value of 0 is set."
+    },
+    {
+        "id": "cae5da95.392a38",
+        "type": "rbe",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "x": 1520,
+        "y": 360,
+        "wires": [
+            [
+                "2b761077.ddd71"
+            ]
+        ]
+    },
+    {
+        "id": "16fc7533.03affb",
+        "type": "inject",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 130,
+        "y": 640,
+        "wires": [
+            [
+                "1ce62496.9ea13b"
+            ]
+        ]
+    },
+    {
+        "id": "1ce62496.9ea13b",
+        "type": "switch",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "property": "controllMode",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "null"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 130,
+        "y": 700,
+        "wires": [
+            [
+                "9c57037.7fe3"
+            ]
+        ],
+        "info": "# Controll Mode Switch\nThis makes sure to set direct controll mode to true, if no other controllmode is currently active"
+    },
+    {
+        "id": "ef7ff2e4.4b953",
+        "type": "comment",
+        "z": "f69c44f4.8899d8",
+        "name": "Click me!!",
+        "info": "# Hello\nTo learn more about this project, please visit [the project page](https://github.com/StyxOo/BrainMusic)",
+        "x": 250,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "de102f00.2fb6",
+        "type": "serial-port",
+        "serialport": "COM3",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "c79b1101.22304",
+        "type": "ui_group",
+        "name": "Controll Mode",
+        "tab": "ad72719e.28452",
+        "order": 1,
+        "disp": true,
+        "width": 4,
+        "collapse": false
+    },
+    {
+        "id": "8c0050a4.ac96c",
+        "type": "ui_group",
+        "name": "Command Strengths",
+        "tab": "ad72719e.28452",
+        "order": 2,
+        "disp": true,
+        "width": 6,
+        "collapse": false
+    },
+    {
+        "id": "ad72719e.28452",
+        "type": "ui_tab",
+        "name": "BrainMusic",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
