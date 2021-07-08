@@ -27,31 +27,9 @@ void showSplashScreen() {
   splashScreenActive = true;
 }
 
-void setup() {
-  // put your setup code here, to run once:
-   
-  // LCD pins
-  pinMode(A0, OUTPUT);
-  pinMode(A1, OUTPUT);
-  pinMode(A2, OUTPUT);
-  pinMode(A3, OUTPUT);
-  pinMode(A4, OUTPUT);
-  pinMode(A5, OUTPUT);
-
-  // Buttons
-  pinMode(ENTER_BUTTON_PIN, INPUT_PULLUP);
-  pinMode(UP_BUTTON_PIN, INPUT_PULLUP);
-  pinMode(DOWN_BUTTON_PIN, INPUT_PULLUP);
-  
-
-  lcd.begin(16, 2);
-  showSplashScreen();
-}
-
-void loop() {
-  // put your main code here, to run repeatedly:
-
-  int enterButtonState = digitalRead(ENTER_BUTTON_PIN);
+void updateUI()
+{
+int enterButtonState = digitalRead(ENTER_BUTTON_PIN);
   int upButtonState = digitalRead(UP_BUTTON_PIN);
   int downButtonState = digitalRead(DOWN_BUTTON_PIN);
   unsigned long time = millis();
@@ -174,4 +152,32 @@ void loop() {
   enterButtonStateLastTick = enterButtonState;
   upButtonStateLastTick = upButtonState;
   downButtonStateLastTick = downButtonState;
+}
+
+
+void setup() {
+  // put your setup code here, to run once:
+   
+  // LCD pins
+  pinMode(A0, OUTPUT);
+  pinMode(A1, OUTPUT);
+  pinMode(A2, OUTPUT);
+  pinMode(A3, OUTPUT);
+  pinMode(A4, OUTPUT);
+  pinMode(A5, OUTPUT);
+
+  // Buttons
+  pinMode(ENTER_BUTTON_PIN, INPUT_PULLUP);
+  pinMode(UP_BUTTON_PIN, INPUT_PULLUP);
+  pinMode(DOWN_BUTTON_PIN, INPUT_PULLUP);
+  
+
+  lcd.begin(16, 2);
+  showSplashScreen();
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  updateUI();
 }
