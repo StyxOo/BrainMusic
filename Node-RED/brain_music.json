@@ -58,8 +58,8 @@
         "z": "f69c44f4.8899d8",
         "name": "",
         "serial": "de102f00.2fb6",
-        "x": 1650,
-        "y": 360,
+        "x": 1790,
+        "y": 280,
         "wires": [],
         "info": "# Serial Port\nMake sure this is set up to work appropriately with your adruino COM port."
     },
@@ -92,7 +92,8 @@
         "y": 800,
         "wires": [
             [
-                "805a9f30.ba717"
+                "805a9f30.ba717",
+                "86a77068.cdf48"
             ]
         ]
     },
@@ -125,7 +126,8 @@
         "y": 880,
         "wires": [
             [
-                "323e9bb9.cb3144"
+                "323e9bb9.cb3144",
+                "1aa9c396.f12eec"
             ]
         ]
     },
@@ -192,9 +194,9 @@
         "y": 880,
         "wires": [
             [
-                "32c1cc3f.2c0f04",
                 "837daf15.f29bc",
-                "4df1bf20.e9d3e"
+                "4df1bf20.e9d3e",
+                "32c1cc3f.2c0f04"
             ]
         ]
     },
@@ -246,7 +248,8 @@
         "y": 960,
         "wires": [
             [
-                "c5aae17.5e0552"
+                "c5aae17.5e0552",
+                "ec25b83b.101b98"
             ]
         ]
     },
@@ -664,10 +667,14 @@
         "y": 300,
         "wires": [
             [
-                "46a31ce.ebca5e4"
+                "76d39e22.7feef"
             ],
-            [],
-            []
+            [
+                "c73acd3b.761df"
+            ],
+            [
+                "708df67b.008eb8"
+            ]
         ]
     },
     {
@@ -675,17 +682,18 @@
         "type": "function",
         "z": "f69c44f4.8899d8",
         "name": "",
-        "func": "var valueA = flow.get(\"commandA\");\nvar valueB = flow.get(\"commandB\");\nvar valueC = flow.get(\"commandC\");\nvar valueD = flow.get(\"commandD\");\nvar charA = String.fromCharCode(valueA);\nvar charB = String.fromCharCode(valueB);\nvar charC = String.fromCharCode(valueC);\nvar charD = String.fromCharCode(valueD);\nnode.log(\"A: \" + valueA + \"  \" + charA);\nnode.log(\"B: \" + valueB + \"  \" + charB);\nnode.log(\"C: \" + valueC + \"  \" + charC);\nnode.log(\"D: \" + valueD + \"  \" + charD);\nmsg.payload = charA + charB + charC + charD;\nreturn msg;",
+        "func": "var payload = \"\";\nfor (let i = 0; i < 4; i++) {\n  payload += String.fromCharCode(msg.payload[i])\n}\n\nmsg.payload = payload;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1340,
-        "y": 180,
+        "x": 1500,
+        "y": 300,
         "wires": [
             [
-                "cae5da95.392a38"
+                "cae5da95.392a38",
+                "9ebe902.35d4d7"
             ]
         ]
     },
@@ -833,8 +841,8 @@
         "inout": "out",
         "septopics": true,
         "property": "payload",
-        "x": 1520,
-        "y": 360,
+        "x": 1670,
+        "y": 280,
         "wires": [
             [
                 "2b761077.ddd71"
@@ -901,6 +909,612 @@
         "wires": []
     },
     {
+        "id": "67493a99.3aa6f4",
+        "type": "ui_button",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "group": "acb6f2eb.0076b",
+        "order": 2,
+        "width": 1,
+        "height": 1,
+        "passthru": false,
+        "label": "A",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "A",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 110,
+        "y": 1100,
+        "wires": [
+            [
+                "6a35a879.f286d8"
+            ]
+        ]
+    },
+    {
+        "id": "bf3fbd01.f531b",
+        "type": "ui_button",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "group": "acb6f2eb.0076b",
+        "order": 4,
+        "width": 1,
+        "height": 1,
+        "passthru": false,
+        "label": "C",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "C",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 110,
+        "y": 1140,
+        "wires": [
+            [
+                "6a35a879.f286d8"
+            ]
+        ]
+    },
+    {
+        "id": "3f619593.e07daa",
+        "type": "ui_button",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "group": "acb6f2eb.0076b",
+        "order": 5,
+        "width": 1,
+        "height": 1,
+        "passthru": false,
+        "label": "D",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "D",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 250,
+        "y": 1160,
+        "wires": [
+            [
+                "6a35a879.f286d8"
+            ]
+        ]
+    },
+    {
+        "id": "455e218a.bb345",
+        "type": "ui_button",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "group": "acb6f2eb.0076b",
+        "order": 3,
+        "width": 1,
+        "height": 1,
+        "passthru": false,
+        "label": "B",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "B",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 250,
+        "y": 1080,
+        "wires": [
+            [
+                "6a35a879.f286d8"
+            ]
+        ]
+    },
+    {
+        "id": "1aa9c396.f12eec",
+        "type": "function",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "func": "if(msg.payload)\n{\n    msg.payload = {\"group\":{\"show\":[\"BrainMusic_Single_Mode_Settings\"]}}\n} \nelse\n{\n    msg.payload = {\"group\":{\"hide\":[\"BrainMusic_Single_Mode_Settings\"]}}\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 720,
+        "wires": [
+            [
+                "c692fe71.791c3"
+            ]
+        ]
+    },
+    {
+        "id": "c692fe71.791c3",
+        "type": "ui_ui_control",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "events": "all",
+        "x": 600,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e9efe001.62694",
+        "type": "ui_text",
+        "z": "f69c44f4.8899d8",
+        "group": "acb6f2eb.0076b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Current",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 520,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "6a35a879.f286d8",
+        "type": "rbe",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "x": 370,
+        "y": 1120,
+        "wires": [
+            [
+                "e9efe001.62694",
+                "8c7804ba.9adde8"
+            ]
+        ]
+    },
+    {
+        "id": "8c7804ba.9adde8",
+        "type": "change",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "currentSingle",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 1160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c73acd3b.761df",
+        "type": "function",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "func": "var single = flow.get(\"currentSingle\");\nvar i = 0;\nif(single == \"B\")\n{\n    i = 1;\n}\nelse if(single == \"C\")\n{\n    i = 2;\n}\nelse if(single == \"D\")\n{\n    i = 3;\n}\nvar strength = flow.get(`command${single}`);\nvar payload = [0, 0, 0, 0];\npayload[i] = strength;\nmsg.payload = payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1340,
+        "y": 300,
+        "wires": [
+            [
+                "46a31ce.ebca5e4"
+            ]
+        ]
+    },
+    {
+        "id": "9ebe902.35d4d7",
+        "type": "debug",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1690,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "76d39e22.7feef",
+        "type": "function",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "func": "var valueA = flow.get(\"commandA\");\nvar valueB = flow.get(\"commandB\");\nvar valueC = flow.get(\"commandC\");\nvar valueD = flow.get(\"commandD\");\nvar payload = [valueA, valueB, valueC, valueD];\nmsg.payload = payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1340,
+        "y": 220,
+        "wires": [
+            [
+                "46a31ce.ebca5e4"
+            ]
+        ]
+    },
+    {
+        "id": "eb5028a2.1bdf48",
+        "type": "ui_text",
+        "z": "f69c44f4.8899d8",
+        "group": "af17a80b.82ab28",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Current",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1860,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "4b76abf2.a64224",
+        "type": "ui_slider",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "label": "",
+        "tooltip": "Command Threshhold",
+        "group": "af17a80b.82ab28",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "100",
+        "step": 1,
+        "x": 1450,
+        "y": 880,
+        "wires": [
+            [
+                "4a8be521.b124cc"
+            ]
+        ]
+    },
+    {
+        "id": "8f1db20b.00ed",
+        "type": "change",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "threshhold",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1880,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4a8be521.b124cc",
+        "type": "rbe",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "x": 1690,
+        "y": 880,
+        "wires": [
+            [
+                "8f1db20b.00ed",
+                "995e18e9.e30598"
+            ]
+        ]
+    },
+    {
+        "id": "8401fc98.d8892",
+        "type": "change",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "currentUpDown",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1490,
+        "y": 820,
+        "wires": [
+            [
+                "d2a2bbb6.756608"
+            ]
+        ]
+    },
+    {
+        "id": "708df67b.008eb8",
+        "type": "function",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "func": "var threshhold = flow.get(\"threshhold\");\nvar valueA = flow.get(\"commandA\");\nvar valueB = flow.get(\"commandB\");\nvar current = flow.get(\"currentUpDown\");\nvar triggered = flow.get(\"triggered\");\nif(!triggered)\n{\n    if(valueA > threshhold)\n    {\n        current = (current + 1 + 4) % 4;\n        flow.set(\"currentUpDown\", current)\n        triggered = true;\n    }\n    else if(valueB > threshhold)\n    {\n        current = (current - 1 + 4) % 4;\n        flow.set(\"currentUpDown\", current)\n        triggered = true;\n    }\n}\nelse if (valueA < threshhold && valueB < threshhold)\n{\n    triggered = false;\n}\nflow.set(\"triggered\", triggered);\n\n\nmsg.payload = current;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Der Code hier wird ausgeführt,\n// wenn der Node gestartet wird\nflow.set(\"currentUpDown\", 0);\nflow.set(\"triggered\", false);\n",
+        "finalize": "",
+        "libs": [],
+        "x": 1340,
+        "y": 380,
+        "wires": [
+            [
+                "6555307c.783b6"
+            ]
+        ]
+    },
+    {
+        "id": "7bbb6174.1d955",
+        "type": "ui_slider",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "label": "",
+        "tooltip": "Strength",
+        "group": "af17a80b.82ab28",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "100",
+        "step": 1,
+        "x": 1450,
+        "y": 980,
+        "wires": [
+            [
+                "276e76a.d13738a"
+            ]
+        ]
+    },
+    {
+        "id": "276e76a.d13738a",
+        "type": "rbe",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "x": 1690,
+        "y": 980,
+        "wires": [
+            [
+                "571fe65e.4d9958",
+                "31854da7.ed2822"
+            ]
+        ]
+    },
+    {
+        "id": "571fe65e.4d9958",
+        "type": "change",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "upDownStrength",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1900,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6555307c.783b6",
+        "type": "rbe",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "x": 1330,
+        "y": 420,
+        "wires": [
+            [
+                "a50c00bc.08b2e"
+            ]
+        ]
+    },
+    {
+        "id": "a50c00bc.08b2e",
+        "type": "function",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "func": "var current = flow.get(\"currentUpDown\")\nvar strength = flow.get(\"upDownStrength\");\nvar payload = [0,0,0,0];\npayload[current] = strength;\nmsg.payload = payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1340,
+        "y": 460,
+        "wires": [
+            [
+                "8401fc98.d8892",
+                "46a31ce.ebca5e4"
+            ]
+        ]
+    },
+    {
+        "id": "d2a2bbb6.756608",
+        "type": "function",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "func": "var current = String.fromCharCode(msg.payload + 65);\nmsg.payload = current;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1680,
+        "y": 820,
+        "wires": [
+            [
+                "eb5028a2.1bdf48"
+            ]
+        ]
+    },
+    {
+        "id": "ec25b83b.101b98",
+        "type": "function",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "func": "if(msg.payload)\n{\n    msg.payload = {\"group\":{\"show\":[\"BrainMusic_Up_Down_Settings\"]}}\n} \nelse\n{\n    msg.payload = {\"group\":{\"hide\":[\"BrainMusic_Up_Down_Settings\"]}}\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 760,
+        "wires": [
+            [
+                "c692fe71.791c3"
+            ]
+        ]
+    },
+    {
+        "id": "995e18e9.e30598",
+        "type": "ui_text",
+        "z": "f69c44f4.8899d8",
+        "group": "af17a80b.82ab28",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Command Threshhold",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1880,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "31854da7.ed2822",
+        "type": "ui_text",
+        "z": "f69c44f4.8899d8",
+        "group": "af17a80b.82ab28",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Current Strength",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1870,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "16952798.927568",
+        "type": "ui_template",
+        "z": "f69c44f4.8899d8",
+        "group": "e40e97d4.1356e8",
+        "name": "",
+        "order": 1,
+        "width": 4,
+        "height": 2,
+        "format": "<p>Direct mode has no further settings</p>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 1080,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "86a77068.cdf48",
+        "type": "function",
+        "z": "f69c44f4.8899d8",
+        "name": "",
+        "func": "if(msg.payload)\n{\n    msg.payload = {\"group\":{\"show\":[\"BrainMusic_Direct_Settings\"]}}\n} \nelse\n{\n    msg.payload = {\"group\":{\"hide\":[\"BrainMusic_Direct_Settings\"]}}\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 680,
+        "wires": [
+            [
+                "c692fe71.791c3"
+            ]
+        ]
+    },
+    {
         "id": "de102f00.2fb6",
         "type": "serial-port",
         "serialport": "COM3",
@@ -934,9 +1548,39 @@
         "type": "ui_group",
         "name": "Command Strengths",
         "tab": "ad72719e.28452",
-        "order": 2,
+        "order": 4,
         "disp": true,
         "width": 6,
+        "collapse": false
+    },
+    {
+        "id": "acb6f2eb.0076b",
+        "type": "ui_group",
+        "name": "Single Mode Settings",
+        "tab": "ad72719e.28452",
+        "order": 2,
+        "disp": true,
+        "width": 4,
+        "collapse": false
+    },
+    {
+        "id": "af17a80b.82ab28",
+        "type": "ui_group",
+        "name": "Up Down Settings",
+        "tab": "ad72719e.28452",
+        "order": 3,
+        "disp": true,
+        "width": 4,
+        "collapse": false
+    },
+    {
+        "id": "e40e97d4.1356e8",
+        "type": "ui_group",
+        "name": "Direct Settings",
+        "tab": "ad72719e.28452",
+        "order": 1,
+        "disp": true,
+        "width": 4,
         "collapse": false
     },
     {
